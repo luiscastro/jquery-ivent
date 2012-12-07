@@ -4,10 +4,10 @@ jQuery Intelligent Event
 This plugin is very useful when you want call page by ajax based on html elements attributes, you can configure all
 stuff on html and jquery-ivent do ajax call for you.
 
-How this works
+How it works
 --------------
 
-First you need start events ``$.fn.ivent({default_method: "post"})`` and then set you HTML.
+First you need start events ``$.fn.ivent({default_method: "post"})`` and then set your HTML.
 
 ```
 <div id="mydiv" data-action="/my-action" data-event="click" data-method="post">
@@ -36,7 +36,33 @@ data-value.
 }
 ```
 
-After this jquery-ivent call /my-action page by ajax with elements.
+After this jquery-ivent call /my-action page by ajax with elements on data header.
+
+Selectors
+--------------
+
+You can use other data-elements out of your html element using data-selector
+
+```
+<div id="mydiv" data-action="/my-action" data-event="click" data-method="post">
+  <input type="text" data-element="username" value="hello"/>
+  <span data-selector="#external"></span>
+</div>
+<div data-element="external" id="external">
+  My External
+</div>
+```
+
+Or just set on data-action element
+
+```
+<div id="mydiv" data-action="/my-action" data-event="click" data-method="post" data-selector="#external">
+  My action
+</div>
+<div id="external">
+  <input type="text" data-element="username" value="hello"/>
+</div>
+```
 
 Triggers
 --------------
